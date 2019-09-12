@@ -1,0 +1,23 @@
+from collections import defaultdict
+d=defaultdict(list)
+e=input("enter the number of edges")
+
+for i in range(0,int(e)):
+    key=int(input("enter the key"))
+    node=int(input("enter the node"))
+    cost=input("enter the cost")
+    d[key].append((node,cost))
+
+s=input("enter the string")
+current_state=0
+for i in range(0,len(s)):
+    for j in range(0,len(d[current_state])):
+        if d[current_state][j][1]==s[i]:
+            current_state=d[current_state][j][0]
+         
+print(current_state)
+if current_state==2:
+    print("accepted")
+else:
+
+    print("rejected")
